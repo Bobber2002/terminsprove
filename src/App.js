@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import BgWrapper from "./components/background/backgroundWrapper";
+import WelcomePage from "./pages/welcome/welcomePage";
+import HomePage from "./pages/home/homePage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BgWrapper>
+        <div className="absolute flex justify-between w-[375px] px-6 pt-2">
+        <p>9:41</p>
+        <p>xxx</p>
+        </div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<WelcomePage/>} />
+            <Route path="/home" element={<HomePage/>} />
+          </Routes>
+        </Router>
+      </BgWrapper>
     </div>
   );
 }
