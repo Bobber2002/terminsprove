@@ -1,9 +1,9 @@
 import HomeContainer from "../../components/home/homeContainer";
 
-const HomePage = () => {
+const HomePage = ({setNavState, navState}) => {
   return ( 
     <>
-      <HomeContainer/>
+      <HomeContainer navState={navState} setNavState={setNavState}/>
     </>
    );
 }
