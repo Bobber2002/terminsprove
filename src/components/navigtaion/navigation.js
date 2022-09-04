@@ -21,7 +21,7 @@ const Navigation = ({setNavState, navState}) => {
         <Link to="/schedule" onClick={()=>setNavState(!navState)}>
           <span>My Schedule</span>
         </Link>
-        <Link to="/" onClick={()=>setNavState(!navState)}>
+        <Link to="/login" onClick={()=>setNavState(!navState)}>
           <span>Log out</span>
         </Link>
       </div>

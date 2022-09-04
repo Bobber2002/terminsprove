@@ -7,6 +7,8 @@ import Navigation from "./components/navigtaion/navigation";
 import SearchPage from "./pages/search/searchPage";
 import SchedulePage from "./pages/schedule/schedulePage";
 import ClassPage from "./pages/class/classPage";
+import LoginPage from "./pages/login/loginPage";
+
 
 function App() {
   const [navState, setNavState] = useState(false);
@@ -50,6 +52,12 @@ function App() {
                 path="/class"
                 element={
                   <ClassPage navState={navState} setNavState={setNavState} />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <LoginPage navState={navState} setNavState={setNavState} />
                 }
               />
             </Routes>
