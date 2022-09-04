@@ -6,7 +6,7 @@ const WelcomeBackground = () => {
   return (
     <div
       id="WelcomeBackground"
-      className="h-full w-full bg-slate-500"
+      className="h-full w-full bg-slate-800"
       style={{
         backgroundImage: `url(/bg2.jpg), url(/bg1.jpg)`,
         backgroundSize: "175%, 300%",
