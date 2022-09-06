@@ -1,10 +1,9 @@
-import Trainer from "./searchSingleTrainer";
+import Trainer from "../lib/trainerSection";
 
-const Trainers = () => {
+const Trainers = ({q}) => {
   return (
-    <div className="flex flex-col mt-8">
-      <h2 className="font-bold">Popular Trainers</h2>
-      <Trainer/>
+    <div className="flex flex-col mt-8 gap-4">
+      <Trainer q={q} title="Popular Trainers"/>
     </div>
   );
 };
