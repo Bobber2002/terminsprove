@@ -4,7 +4,7 @@ import "swiper/css";
 import { useState, useEffect } from "react";
 import SmallClass from "./singleSmallClass";
 
-const ClassesSlider = ({ title }) => {
+const ClassesSlider = ({ title}) => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {

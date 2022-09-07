@@ -4,21 +4,45 @@ import Stars from "../lib/stars";
 import axios from "axios";
 import Trainer from "../lib/trainerSection";
 
-const ClassContainer = ({ setNavState, navState }) => {
+
+const ClassContainer = ({ setNavState, navState, savedClasses, setSavedClasses }) => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const [data, setData] = useState([]);
+
+
+  
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/classes/${urlParams.get("class")}`)
-      .then((res) => {
-        // console.log(res.data);
-        const classes = res.data;
-        // const classes = res.data;
-        setData(classes);
-      });
+    .get(`http://localhost:4000/api/v1/classes/${urlParams.get("class")}`)
+    .then((res) => {
+      // console.log(res.data);
+      const classes = res.data;
+      // const classes = res.data;
+      setData(classes);
+    });
   }, []);
+
+  useEffect(() => {
+    // console.log(data);
+    savedClasses.forEach(element => {
+      console.log(element);
+    });
+  }, [data]);
   // console.log(data);
+
+  function handleSetSavedClasses(thisData) {
+    if (savedClasses.includes(thisData)) {
+    test()
+      return;
+    }
+    setSavedClasses([...savedClasses, data]);
+
+    test()
+  }
+  function test() {
+    console.log(savedClasses);
+  }
   return (
     <>
       <div
@@ -53,8 +77,12 @@ const ClassContainer = ({ setNavState, navState }) => {
           <p>{data.classDescription}</p>
         </div>
         <Trainer trainerId={data.trainerId} />
-        <div className="w-full py-3 mt-6 bg-yellow-400 rounded-full uppercase flex justify-center items-center">
-          sign up
+        <div onClick={()=>handleSetSavedClasses(data)} className="w-full py-3 mt-6 bg-yellow-400 rounded-full uppercase flex justify-center items-center">
+          {
+            savedClasses.includes(data)
+            ? "Leave"
+            : "Sign up"
+          }
         </div>
       </div>
     </>

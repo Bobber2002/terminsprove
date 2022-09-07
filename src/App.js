@@ -14,6 +14,7 @@ import { FaWifi } from "react-icons/fa";
 
 function App() {
   const [navState, setNavState] = useState(false);
+  const [savedClasses, setSavedClasses] = useState([]);
 
   useEffect(() => {
     console.log(navState);
@@ -39,7 +40,7 @@ function App() {
               <Route
                 path="/home"
                 element={
-                  <HomePage navState={navState} setNavState={setNavState} />
+                  <HomePage componentnavState={navState} setNavState={setNavState} />
                 }
               />
               <Route
@@ -51,13 +52,13 @@ function App() {
               <Route
                 path="/schedule"
                 element={
-                  <SchedulePage navState={navState} setNavState={setNavState} />
+                  <SchedulePage savedClasses={savedClasses} navState={navState} setNavState={setNavState} />
                 }
               />
               <Route
                 path="/class"
                 element={
-                  <ClassPage navState={navState} setNavState={setNavState} />
+                  <ClassPage savedClasses={savedClasses} setSavedClasses={setSavedClasses} navState={navState} setNavState={setNavState} />
                 }
               />
               <Route

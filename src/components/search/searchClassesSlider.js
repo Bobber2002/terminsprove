@@ -6,6 +6,8 @@ import SmallClass from "../lib/singleSmallClass";
 
 let sortedClasses = [];
 
+let fragmentType = <></>
+
 const ClassesSlider = ({ title, q }) => {
   const [classes, setClasses] = useState([]);
 
@@ -46,7 +48,7 @@ const ClassesSlider = ({ title, q }) => {
                 />
               </SwiperSlide>
             ) : (
-              <p>No classes match your search</p>
+              <></>
             )}
           </>
         ))}
@@ -65,7 +67,9 @@ const ClassesSlider = ({ title, q }) => {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {returnElement}
+        {
+          returnElement.type !== fragmentType.type ? returnElement : <p>No classes match your search</p>
+        }
       </Swiper>
     </div>
   );
