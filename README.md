@@ -26,3 +26,7 @@ Validation of text fields are done through yup and react-hook-forms.
 ## Extra assignment:
 
 My site is hosted on netlify with automatic building/publishing through any changes to the master branch on this github page.
+
+
+## Trello:
+<img width="460" height="300" src="https://user-images.githubusercontent.com/77662656/188876072-81a7d26b-a7d9-4d00-a460-f791b2a569d3.png" />
