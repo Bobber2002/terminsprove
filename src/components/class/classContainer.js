@@ -8,10 +8,7 @@ import Trainer from "../lib/trainerSection";
 const ClassContainer = ({ setNavState, navState, savedClasses, setSavedClasses }) => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const [data, setData] = useState([]);
-
-
-  
+  const [data, setData] = useState([]); 
   useEffect(() => {
     axios
     .get(`http://localhost:4000/api/v1/classes/${urlParams.get("class")}`)
@@ -24,9 +21,12 @@ const ClassContainer = ({ setNavState, navState, savedClasses, setSavedClasses }
   }, []);
 
   useEffect(() => {
-    // console.log(data);
     savedClasses.forEach(element => {
-      console.log(element);
+      if (element.id !== data.id) {
+        console.log('not equal');
+        return;
+      }
+      console.log('equal');
     });
   }, [data]);
   // console.log(data);
