@@ -1,8 +1,8 @@
 import ScheduleContainer from "../../components/schedule/scheduleContainer";
 
-const SchedulePage = ({setNavState, navState}) => {
+const SchedulePage = ({setNavState, navState, savedClasses}) => {
   return (
-      <ScheduleContainer navState={navState} setNavState={setNavState}/>
+      <ScheduleContainer savedClasses={savedClasses} navState={navState} setNavState={setNavState}/>
   );
 };
 

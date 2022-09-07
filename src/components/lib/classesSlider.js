@@ -4,7 +4,7 @@ import "swiper/css";
 import { useState, useEffect } from "react";
 import SmallClass from "./singleSmallClass";
 
-const ClassesSlider = ({ title }) => {
+const ClassesSlider = ({ title}) => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
@@ -18,13 +18,14 @@ const ClassesSlider = ({ title }) => {
     <div id="ChooseClasses">
       <h3 className="font-extrabold text-xl mb-4">{title}</h3>
       <Swiper
-        spaceBetween={-75}
-        slidesPerView={2}
+        slidesPerView={3}
+        spaceBetween={30}
+        loop={true}
+        loopFillGroupWithBlank={true}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
         {classes.map((singleClass) => (
-          <>
           <SwiperSlide key={singleClass.id}>
             <SmallClass
               key={singleClass.id}
@@ -33,15 +34,6 @@ const ClassesSlider = ({ title }) => {
               thumb={singleClass.asset.url}
             />
           </SwiperSlide>
-          {/* <SwiperSlide key={singleClass.id+"ex"}>
-            <SmallClass
-              key={singleClass.id+"ex"}
-              id={singleClass.id+"ex"}
-              title={singleClass.className}
-              thumb={singleClass.asset.url}
-            />
-          </SwiperSlide> */}
-          </>
         ))}
       </Swiper>
     </div>

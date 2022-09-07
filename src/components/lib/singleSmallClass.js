@@ -3,11 +3,11 @@ import Stars from "./stars";
 
 const SmallClass = ({ id, title, thumb }) => {
   return (
-    <Link to="/class">
+    <Link to={`/class?class=${id}`}>
       <div
         id={id}
         onClick={(e) => {
-          console.log(e.currentTarget);
+          // console.log(e.currentTarget);
         }}
         className="flex flex-col-reverse w-28 h-32 rounded-t-2xl rounded-bl-2xl bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url("${thumb}")` }}

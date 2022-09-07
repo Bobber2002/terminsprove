@@ -8,10 +8,13 @@ import SearchPage from "./pages/search/searchPage";
 import SchedulePage from "./pages/schedule/schedulePage";
 import ClassPage from "./pages/class/classPage";
 import LoginPage from "./pages/login/loginPage";
-
+import { BsBatteryFull } from "react-icons/bs";
+import { TbAntennaBars5 } from "react-icons/tb";
+import { FaWifi } from "react-icons/fa";
 
 function App() {
   const [navState, setNavState] = useState(false);
+  const [savedClasses, setSavedClasses] = useState([]);
 
   useEffect(() => {
     console.log(navState);
@@ -23,7 +26,11 @@ function App() {
         <Router>
           <div className="absolute z-10 flex justify-between w-[375px] px-6 pt-2">
             <p>9:41</p>
-            <p>xxx</p>
+            <div className="flex gap-1">
+              <TbAntennaBars5 />
+              <FaWifi />
+              <BsBatteryFull />
+            </div>
           </div>
           {navState ? (
             <Navigation navState={navState} setNavState={setNavState} />
@@ -33,7 +40,7 @@ function App() {
               <Route
                 path="/home"
                 element={
-                  <HomePage navState={navState} setNavState={setNavState} />
+                  <HomePage componentnavState={navState} setNavState={setNavState} />
                 }
               />
               <Route
@@ -45,13 +52,13 @@ function App() {
               <Route
                 path="/schedule"
                 element={
-                  <SchedulePage navState={navState} setNavState={setNavState} />
+                  <SchedulePage savedClasses={savedClasses} navState={navState} setNavState={setNavState} />
                 }
               />
               <Route
                 path="/class"
                 element={
-                  <ClassPage navState={navState} setNavState={setNavState} />
+                  <ClassPage savedClasses={savedClasses} setSavedClasses={setSavedClasses} navState={navState} setNavState={setNavState} />
                 }
               />
               <Route
@@ -62,6 +69,10 @@ function App() {
               />
             </Routes>
           )}
+
+          <div className="z-10 flex justify-center w-[375px] px-6 pb-2 bg-transparent absolute bottom-4">
+            <div className="w-32 h-1.5 bg-[#d4d4d4] rounded-full" />
+          </div>
         </Router>
       </BgWrapper>
     </div>
